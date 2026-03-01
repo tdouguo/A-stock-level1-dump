@@ -5,8 +5,8 @@ use tokio::time::{timeout, Duration};
 use tracing::{info, debug};
 use crate::models::MarketData;
 use super::protocol::{
-    parse_hexdump, replace_date_code, write_u32_le, read_u32_le,
-    DEFAULT_HELLO, DEFAULT_REQUEST, OFFSET_POS1, OFFSET_POS2, DEFAULT_STEP
+    parse_hexdump, replace_date_code, write_u32_le,
+    DEFAULT_HELLO, DEFAULT_REQUEST, OFFSET_POS1, DEFAULT_STEP
 };
 use super::extract::extract_payloads;
 use super::parser::parse_payload;

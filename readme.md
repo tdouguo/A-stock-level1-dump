@@ -24,10 +24,8 @@ docker-compose up -d
 # 2. 编译项目
 cargo build --release
 
-# 3. 初始化（导入股票信息）
-./target/release/stock-fetcher
 
-# 4. 下载数据
+# 4. 导入数据，下载数据
 ./target/release/bulk_download 20260224 100
 ```
 
@@ -72,17 +70,8 @@ docker-compose up -d
 cargo build --release
 ```
 
-### 4. 初始化数据库（首次运行）
 
-```bash
-./target/release/stock-fetcher
-```
-
-这会：
-- 创建数据库和表
-- 导入 `行业分类.xlsx` 中的5589只股票信息
-
-### 5. 下载全量数据
+### 4. 下载全量数据
 
 ```bash
 # 基本用法：日期 + 并发数
@@ -94,11 +83,6 @@ cargo build --release
 # 强制重新下载
 ./target/release/bulk_download 20260224 50 --force
 
-# 批量下载多天
-for date in 20260220 20260221 20260224; do
-    ./target/release/bulk_download $date 50
-    echo "✅ 完成 $date"
-done
 ```
 
 ### 6. 查看数据
